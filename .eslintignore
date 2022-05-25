@@ -1,0 +1,6 @@
+node_modules
+
+.yarn
+.pnp.js
+
+# other directories to skip linting
