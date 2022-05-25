@@ -10,7 +10,7 @@ type Props = {
   inputRef?: React.MutableRefObject<HTMLInputElement>;
 }
 
-const AddTodo = ({handleSubmission, handleInputChange,todo, inputRef }: Props) => {
+const AddTodo: React.FC<Props> = ({handleSubmission, handleInputChange,todo, inputRef }) => {
   return (
      <div className='formContainer'>
       <form>
@@ -33,4 +33,4 @@ const AddTodo = ({handleSubmission, handleInputChange,todo, inputRef }: Props) =
   )
 }
 
-export default AddTodo
+export default AddTodo;
