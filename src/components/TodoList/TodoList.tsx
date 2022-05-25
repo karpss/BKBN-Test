@@ -1,10 +1,16 @@
 /* eslint-disable */
-import React from 'react'
+import React from 'react';
+import './TodoList.css';
+import TodoItem from '../TodoItem/TodoItem';
 
-const TodoList = () => {
+const TodoList: React.FC = () => {
   return (
-    <div>TodoList</div>
+      <div>
+      
+      <TodoItem/>
+      
+      </div>
   )
 }
 
-export default TodoList
+export default TodoList;

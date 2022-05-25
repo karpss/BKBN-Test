@@ -1,9 +1,9 @@
 /* eslint-disable */
 import React from 'react'
 
-const TodoItem = () => {
+const TodoItem: React.FC = () => {
   return (
-    <div>TodoItem</div>
+    <div className='todoItem'>TodoItem</div>
   )
 }
 

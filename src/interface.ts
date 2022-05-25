@@ -1,7 +1,8 @@
 /* eslint-disable */
  export interface myTodo {
-     id: number | string,
+     id: number,
      text: string,
+     complete:boolean,
      timestampDue: Date
 
 }
