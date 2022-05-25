@@ -1,33 +1,38 @@
 {
     "todos": [
         {
-          "complete": false,
+          
           "id": "1",
           "text": "Grocery Shopping",
+          "complete": false,
           "timestampDue": 1561881986756
         },
         {
-          "complete": false,
+          
           "id": "2",
           "text": "School Run",
+          "complete": false,
           "timestampDue": 1607110465663
         },
         {
-          "complete": false,
+          
           "id": "3",
           "text": "Make Dinner",
+          "complete": false,
           "timestampDue": 1561881986756
         },
         {
-          "complete": false,
+          
           "id": "4",
           "text": "Lunch Preps",
+          "complete": false,
           "timestampDue": 1607110465663
         },
         {
-          "complete": false,
+          
           "id": "5",
           "text": "Pay Bill",
+          "complete": false,
           "timestampDue": 1607110465663
         }
       ]
