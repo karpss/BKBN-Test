@@ -1,46 +1,46 @@
 {
   "todos": [
     {
-      "text": "Play with eri",
+      "text": "Check on Time",
       "complete": false,
-      "timestampDue": "2022-05-25T16:57:41.560Z",
-      "id": 8
+      "timestampDue": "5/26/22, 1:39:20 PM",
+      "id": 16
     },
     {
       "text": "School Runs",
       "complete": false,
-      "timestampDue": "2022-05-26T05:22:01.440Z",
-      "id": 9
-    },
-    {
-      "text": "Make Dinner",
-      "complete": false,
-      "timestampDue": "2022-05-26T05:35:58.142Z",
-      "id": 12
+      "timestampDue": "5/26/2022, 1:41:41 PM",
+      "id": 17
     },
     {
       "text": "Make Breakfast",
       "complete": false,
-      "timestampDue": "2022-05-26T05:37:14.510Z",
-      "id": 13
+      "timestampDue": "5/26/2022, 1:44:15 PM",
+      "id": 18
     },
     {
       "text": "Make Lunch",
       "complete": false,
-      "timestampDue": "2022-05-26T05:48:59.230Z",
-      "id": 14
+      "timestampDue": "5/26/2022, 1:44:24 PM",
+      "id": 19
     },
     {
-      "text": "Drive test",
-      "complete": true,
-      "timestampDue": "2022-05-26T05:52:53.287Z",
-      "id": 15
-    },
-    {
-      "text": "Check on Time",
+      "text": "Make Dinner",
       "complete": false,
-      "timestampDue": "2022-05-26T06:07:20.646Z",
-      "id": 16
+      "timestampDue": "5/26/2022, 1:44:29 PM",
+      "id": 20
+    },
+    {
+      "text": "Call Jonah",
+      "complete": true,
+      "timestampDue": "5/26/2022, 1:44:44 PM",
+      "id": 21
+    },
+    {
+      "text": "Buy Bread",
+      "complete": false,
+      "timestampDue": "5/26/2022, 3:22:24 PM",
+      "id": 22
     }
   ]
 }

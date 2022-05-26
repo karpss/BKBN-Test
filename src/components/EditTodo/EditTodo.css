@@ -1,0 +1,22 @@
+.editFormContainer{
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #808080;
+  margin-bottom: 1rem;
+}
+
+.editFormInput{
+  width: 300px;
+    height: 30px;
+}
+
+.updateButton{
+    padding: 10px 16px;
+    margin: 10px 0;
+     border-radius: 5px;
+      cursor: pointer;
+    outline: none;
+
+}

@@ -24,7 +24,10 @@ const App: React.FC = () => {
 
   useEffect(() => {
     axios.get(todosUrl)
-    .then((todos) => setTodos(todos.data));
+    .then((todos) => setTodos(todos.data))
+    .catch(() => {
+      throw new Error('API error');
+    });
 
   }, []);
 
@@ -37,7 +40,7 @@ const App: React.FC = () => {
       todosUrl,{
         text: todo,
         complete:false,
-        timestampDue:(new Date()),
+        timestampDue:(new Date().toLocaleString()),
       }
     )
 
@@ -85,6 +88,29 @@ const App: React.FC = () => {
     
   }
 
+  const handleCancelEditTodo = () => {
+    setEdit(false);
+  }
+
+  const handleUpdateTodo = (id:number | string, currentTodo:myTodo) => {
+
+    axios.put(`${todosUrl}/${id}`, {
+      ...currentTodo,
+    });
+
+    const updateTodo = todos.map((todo) => {
+      return todo.id === id ? currentTodo : todo;
+    });
+
+    setEdit(false);
+    setTodos(updateTodo);
+  }
+
+  const handleEditTodoInputChange = (e: React.FormEvent<HTMLInputElement>) => {
+    setCurrentTodo({ ...currentTodo, text: e.currentTarget.value });
+
+  }
+
   console.log(todos);
 
 
@@ -92,7 +118,13 @@ const App: React.FC = () => {
     <div className="Container">
       {edit ? (
       <div>
-      <EditTodo/>
+      <EditTodo
+      currentTodo={currentTodo}
+      handleCancelEditTodo={handleCancelEditTodo}
+      handleUpdateTodo={handleUpdateTodo}
+      handleEditTodoInputChange={handleEditTodoInputChange}
+
+      />
       </div>
       ) : (
       <div>

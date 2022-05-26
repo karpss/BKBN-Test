@@ -20,10 +20,10 @@ const TodoItem: React.FC<Props> = ({todo, handleTaskCompletion, handleEdit, hand
       {todo.timestampDue}
       </div>
       <div>
-      <button>Edit</button>
+      <button className='itemButton' onClick={() => handleEdit(todo)}>Edit</button>
       </div>
       <div>
-      <button onClick={() => handleDelete(todo.id)} >Delete</button>
+      <button className='itemButton' onClick={() => handleDelete(todo.id)} >Delete</button>
       </div>
       </div>
       
