@@ -1,7 +1,7 @@
 {
   "todos": [
     {
-      "text": "Check on Time",
+      "text": "Check on Tim",
       "complete": false,
       "timestampDue": "5/26/22, 1:39:20 PM",
       "id": 16
@@ -41,6 +41,12 @@
       "complete": false,
       "timestampDue": "5/26/2022, 3:22:24 PM",
       "id": 22
+    },
+    {
+      "text": "Buy Drinks",
+      "complete": false,
+      "timestampDue": "5/26/2022, 5:26:49 PM",
+      "id": 23
     }
   ]
 }

@@ -8,29 +8,29 @@ type Props = {
   handleTaskCompletion: (todo: myTodo) => void;
   handleEdit: (todo: myTodo) => void;
   handleDelete: (id: number | string) => void;
-}
+};
 
-const TodoList: React.FC<Props> = ({todos, handleTaskCompletion,handleEdit,handleDelete }) => {
-
-  console.log(todos);
+const TodoList: React.FC<Props> = ({
+  todos,
+  handleTaskCompletion,
+  handleEdit,
+  handleDelete,
+}) => {
   return (
-      <div>
-        {todos.map((todo) => {
-      return(
-      <TodoItem
-      todo={todo}
-      key={todo.id}
-      handleTaskCompletion={handleTaskCompletion}
-      handleEdit={handleEdit}
-      handleDelete={handleDelete}
-      
-      
-      />
-      )
-          }  )
-        }
-      </div>
-  )
-}
+    <div>
+      {todos.map((todo) => {
+        return (
+          <TodoItem
+            todo={todo}
+            key={todo.id}
+            handleTaskCompletion={handleTaskCompletion}
+            handleEdit={handleEdit}
+            handleDelete={handleDelete}
+          />
+        );
+      })}
+    </div>
+  );
+};
 
 export default TodoList;

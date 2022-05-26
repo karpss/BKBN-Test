@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, {useEffect, useState, useRef, useCallback} from 'react';
 import './App.css';
 import axios from 'axios';
 import AddTodo from './components/AddTodo/AddTodo';
@@ -14,75 +14,65 @@ const App: React.FC = () => {
     id: '',
     text: '',
     complete: false,
+  });
 
-  })
-
-
-  const todosUrl = 'http://localhost:3333/todos'
+  const todosUrl = 'http://localhost:3333/todos';
 
   const inputRef = useRef<HTMLInputElement>(null);
 
   const fetchCharacterInfo = useCallback(async () => {
-   await axios.get(todosUrl)
-    .then((todos) => setTodos(todos.data))
-    .catch(() => {
-      throw new Error('API error');
-    });
-
+    await axios
+      .get(todosUrl)
+      .then((todos) => setTodos(todos.data))
+      .catch(() => {
+        throw new Error('API error');
+      });
   }, []);
 
   useEffect(() => {
     fetchCharacterInfo();
+  }, [fetchCharacterInfo]);
 
-  }, []);
-
-  const handleSubmission = async (e:React.FormEvent, todo:string) =>{
-    e.preventDefault()
-    if (!todo){
-      return("Todo is empty");
+  const handleSubmission = async (e: React.FormEvent, todo: string) => {
+    e.preventDefault();
+    if (!todo) {
+      return 'Todo is empty';
     }
-    await axios.post(
-      todosUrl,{
+    await axios
+      .post(todosUrl, {
         text: todo,
-        complete:false,
-        timestampDue:(new Date().toLocaleString()),
-      }
-    )
+        complete: false,
+        timestampDue: new Date().toLocaleString(),
+      })
 
-    .then((response) => setTodos([...todos, response.data]));
+      .then((response) => setTodos([...todos, response.data]));
 
     setTodo('');
     inputRef.current?.focus();
+  };
 
-  }
-
-  const handleInputChange = (e: React.FormEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.FormEvent<HTMLInputElement>): void => {
     setTodo(e.currentTarget.value);
+  };
 
-  }
-
-  const handleTaskCompletion = (todo: myTodo) => {
+  const handleTaskCompletion = (todo: myTodo): void => {
     setTodos(
       todos.map((task) => {
-        return todo.id === task.id
-          ? { ...task, complete: !task.complete }
-          : task;
+        return todo.id === task.id ? {...task, complete: !task.complete} : task;
       })
     );
     axios.put(`${todosUrl}/${todo.id}`, {
       ...todo,
       complete: true,
     });
-  }
+  };
 
-  const handleEdit = (todo: myTodo) => { 
+  const handleEdit = (todo: myTodo): void => {
     setEdit(true);
-    setCurrentTodo({ ...todo });
+    setCurrentTodo({...todo});
+  };
 
-    
-  }
-
-  const handleDelete = (id:number | string) => {
+  const handleDelete = (id: number | string): void => {
     axios.delete(`${todosUrl}/${id}`);
 
     const filteredTodos = todos.filter((todo) => {
@@ -90,15 +80,13 @@ const App: React.FC = () => {
     });
 
     setTodos(filteredTodos);
-    
-  }
+  };
 
-  const handleCancelEditTodo = () => {
+  const handleCancelEditTodo = (): void => {
     setEdit(false);
-  }
+  };
 
-  const handleUpdateTodo = (id:number | string, currentTodo:myTodo) => {
-
+  const handleUpdateTodo = (id: number | string, currentTodo: myTodo): void => {
     axios.put(`${todosUrl}/${id}`, {
       ...currentTodo,
     });
@@ -109,43 +97,41 @@ const App: React.FC = () => {
 
     setEdit(false);
     setTodos(updateTodo);
-  }
+  };
 
-  const handleEditTodoInputChange = (e: React.FormEvent<HTMLInputElement>) => {
-    setCurrentTodo({ ...currentTodo, text: e.currentTarget.value });
-
-  }
-
-  console.log(todos);
-
+  const handleEditTodoInputChange = (
+    e: React.FormEvent<HTMLInputElement>
+  ): void => {
+    setCurrentTodo({...currentTodo, text: e.currentTarget.value});
+  };
 
   return (
     <div className="Container">
+      <h1>Todo List</h1>
       {edit ? (
-      <div>
-      <EditTodo
-      currentTodo={currentTodo}
-      handleCancelEditTodo={handleCancelEditTodo}
-      handleUpdateTodo={handleUpdateTodo}
-      handleEditTodoInputChange={handleEditTodoInputChange}
-
-      />
-      </div>
+        <div>
+          <EditTodo
+            currentTodo={currentTodo}
+            handleCancelEditTodo={handleCancelEditTodo}
+            handleUpdateTodo={handleUpdateTodo}
+            handleEditTodoInputChange={handleEditTodoInputChange}
+          />
+        </div>
       ) : (
-      <div>
-      <AddTodo
-      todo={todo}
-      handleSubmission={handleSubmission}
-      handleInputChange={handleInputChange}
-      />
-      
-      <TodoList
-      todos={todos}
-      handleTaskCompletion={handleTaskCompletion}
-      handleEdit={handleEdit}
-      handleDelete={handleDelete}
-      />
-      </div>
+        <div>
+          <AddTodo
+            todo={todo}
+            handleSubmission={handleSubmission}
+            handleInputChange={handleInputChange}
+          />
+
+          <TodoList
+            todos={todos}
+            handleTaskCompletion={handleTaskCompletion}
+            handleEdit={handleEdit}
+            handleDelete={handleDelete}
+          />
+        </div>
       )}
     </div>
   );
