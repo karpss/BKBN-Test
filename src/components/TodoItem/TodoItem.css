@@ -1,0 +1,19 @@
+.todoItem{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #808080;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #333333;  
+}
+
+button{
+    padding: 10px 16px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    
+    
+}

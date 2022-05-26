@@ -24,7 +24,7 @@ const AddTodo: React.FC<Props> = ({handleSubmission, handleInputChange,todo, inp
         
         />
         
-        <button onClick={(e) => handleSubmission(e, todo)} className='formButton'>Add</button>
+        <button disabled={!todo} onClick={(e) => handleSubmission(e, todo)} className='formButton'>Add</button>
 
 
 

@@ -15,9 +15,20 @@ const TodoList: React.FC<Props> = ({todos, handleTaskCompletion,handleEdit,handl
   console.log(todos);
   return (
       <div>
+        {todos.map((todo) => {
+      return(
+      <TodoItem
+      todo={todo}
+      key={todo.id}
+      handleTaskCompletion={handleTaskCompletion}
+      handleEdit={handleEdit}
+      handleDelete={handleDelete}
       
-      <TodoItem/>
       
+      />
+      )
+          }  )
+        }
       </div>
   )
 }
