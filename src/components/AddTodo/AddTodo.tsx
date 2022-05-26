@@ -2,7 +2,7 @@
 import React, {FormEvent} from 'react';
 import './AddTodo.css';
 
-type Props = {
+ type Props = {
   handleSubmission: (e: FormEvent, todo: string) => void;
   handleInputChange: (e: React.FormEvent<HTMLInputElement>) => void;
   todo: string;
