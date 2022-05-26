@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import './App.css';
 import axios from 'axios';
 import AddTodo from './components/AddTodo/AddTodo';
@@ -22,12 +22,17 @@ const App: React.FC = () => {
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    axios.get(todosUrl)
+  const fetchCharacterInfo = useCallback(async () => {
+   await axios.get(todosUrl)
     .then((todos) => setTodos(todos.data))
     .catch(() => {
       throw new Error('API error');
     });
+
+  }, []);
+
+  useEffect(() => {
+    fetchCharacterInfo();
 
   }, []);
 
@@ -51,7 +56,7 @@ const App: React.FC = () => {
 
   }
 
-  const handleInputChange =(e: React.FormEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.FormEvent<HTMLInputElement>) => {
     setTodo(e.currentTarget.value);
 
   }
