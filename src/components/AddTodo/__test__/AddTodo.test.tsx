@@ -3,7 +3,7 @@ import React from 'react';
 import { screen, render, fireEvent } from "@testing-library/react";
 import AddTodo from '../AddTodo';
 
-
+describe("Add Todo", () => {
 it('should render input element', () => {
     render(
         <AddTodo 
@@ -30,6 +30,7 @@ it('will not call onClick when disabled', () => {
     fireEvent.click(buttonElement);
     expect(onClick).not.toHaveBeenCalled();
   });
+});
 
   
   

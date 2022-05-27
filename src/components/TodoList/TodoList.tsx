@@ -17,8 +17,9 @@ const TodoList: React.FC<Props> = ({
   handleDelete,
 }) => {
   return (
-    <div>
+     <div>
       {todos.map((todo) => {
+        
         return (
           <TodoItem
             todo={todo}
@@ -28,6 +29,7 @@ const TodoList: React.FC<Props> = ({
             handleDelete={handleDelete}
           />
         );
+        
       })}
     </div>
   );

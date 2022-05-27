@@ -9,12 +9,14 @@ type Props = {
   handleDelete: (id: number | string) => void;
 };
 
+
 const TodoItem: React.FC<Props> = ({
   todo,
   handleTaskCompletion,
   handleEdit,
   handleDelete,
 }) => {
+  
   return (
     <div className="todoItem">
       <div
