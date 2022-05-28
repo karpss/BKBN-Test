@@ -5,8 +5,6 @@ export const mockData = {
         id: 16,
         text: "Check on Tim",
         complete: false,
-
-        
     }
       
 

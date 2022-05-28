@@ -20,7 +20,7 @@ const App: React.FC = () => {
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const fetchCharacterInfo = useCallback(async () => {
+  const fetchTodosInfo = useCallback(async () => {
     await axios
       .get(todosUrl)
       .then((todos) => setTodos(todos.data))
@@ -30,8 +30,8 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    fetchCharacterInfo();
-  }, [fetchCharacterInfo]);
+    fetchTodosInfo();
+  }, [fetchTodosInfo]);
 
   const handleSubmission = async (e: React.FormEvent, todo: string) => {
     e.preventDefault();
